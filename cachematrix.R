@@ -1,10 +1,11 @@
 ## Given the delay on running the solve function to find the inverse of a matrix,
-## these functions will cache a given matrix and its inverse by creating
-## a list with cached values
+## these functions will cache a given matrix and its inverse; it will do so 
+## by creating a list with cached values, so when the inverse is needed, it can 
+## just be found and called, rather than calculated over and over again.
 
 
-## makeCacheMatrix creates and caches a matrix and spaces in the environment 
-## to cache the inverse of the matrix.
+## makeCacheMatrix creates a list and caches a matrix in it in the field set, 
+## and creates the field for its inverse (inv).
 
 makeCacheMatrix <- function(x = matrix()) {
   inv <- NULL
@@ -22,8 +23,8 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## cacheSolve, when called for first time with a given matrix, finds the inverse
-## of the matrix and stores (caches) it in the list created by running first the 
+## cacheSolve, when called for first time with a given matrix, calculates the 
+## inverse of the matrix and stores (caches) it in the list created by the 
 ## makeCacheMatrix function. From there on, it finds the cached value and returns
 ## it without calculating it again.
 
